@@ -4,29 +4,74 @@
  */
 package itu.dateme.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+import org.apache.log4j.Logger;
+import org.apache.log4j.Priority;
 /**
  *
  * @author miul
  */
-public class User {
+@Entity
+@Table(name = "user")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+    @NamedQuery(name = "User.findByUsername", query = "SELECT u FROM User u WHERE u.username = :username"),
+    @NamedQuery(name = "User.findByPassword", query = "SELECT u FROM User u WHERE u.password = :password"),
+    @NamedQuery(name = "User.findByAdmin", query = "SELECT u FROM User u WHERE u.admin = :admin")})
+    
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    @Id
+    @Basic(optional = false)
+    @Column(name = "Username")
+    private String username;
+    @Basic(optional = false)
+    @Column(name = "Password")
+    private String password;
+    @Basic(optional = false)
+    @Column(name = "Admin")
+    private boolean admin;
     private String name;
     private String cpr;
     private String address;
     private String email;
     private String passsword;
     private String phone;
-        
+
+    static Logger logger = Logger.getLogger(User.class.getName());
+
     private List<User> contacts = new ArrayList<User>();
     private List<Message> inbox = new ArrayList<Message>();
-    private List<Message> outbox = new ArrayList<Message>();
+    private List<Message> outbox = new ArrayList<Message>();    
     
     public User(String name, String email, String password){
         this.name = name;
         this.email = email;
         this.passsword = password;
+        logger.log(Priority.DEBUG, email);
+        
+    }
+
+    public User(String username) {
+        this.username = username;
+    }
+
+    public User(String username, String password, boolean admin) {
+        this.username = username;
+        this.password = password;
+        this.admin = admin;
     }
 
     
@@ -94,10 +139,10 @@ public class User {
     }
 
     /**
-     * @param passsword the passsword to set
+     * @param password the password to set
      */
-    public void setPasssword(String passsword) {
-        this.passsword = passsword;
+    public void setPasssword(String password) {
+        this.passsword = password;
     }
 
     /**
@@ -156,8 +201,56 @@ public class User {
         this.outbox = outbox;
     }
 
-    public String toString(){
-        return "name: " + name + " email: " + email;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (username != null ? username.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof User)) {
+            return false;
+        }
+        User other = (User) object;
+        if ((this.username == null && other.username != null) || (this.username != null && !this.username.equals(other.username))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "itu.dateme.model.User[ username=" + username + " ]";
+    }
+
+    public User() {
     }
 }
 
