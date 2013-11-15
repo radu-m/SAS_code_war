@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    <managed-bean>
+        <managed-bean-name>friendProfile</managed-bean-name>
+        <managed-bean-class>com.ssase13.model.friendProfile</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>JsfLogin</managed-bean-name>
+        <managed-bean-class>com.ssase13.model.JsfLogin</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <managed-bean-name>Register</managed-bean-name>
+        <managed-bean-class>com.ssase13.model.Register</managed-bean-class>
+    
+        <managed-bean-scope>request</managed-bean-scope></managed-bean>
+    <navigation-rule>
+        <from-view-id>/register.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{register.registerUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/login.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{register.registerUser}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/fail.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/login.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{JsfLogin.CheckValidUser}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/myProfile.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{JsfLogin.CheckValidUser}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/fail.jsp</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>register</from-action>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/register.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+<!--    <navigation-rule>
+        <from-view-id>/people</from-view-id>
+        
+    </navigation-rule>-->
+</faces-config>
