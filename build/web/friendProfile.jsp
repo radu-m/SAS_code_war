@@ -5,15 +5,24 @@
 --%>
 
 <%@page import="com.jsflogin.friendProfile"%>
+<%@page import="com.ssase13.model.Success"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="f" uri="http://java.sun.com/jsf/core" %>
 <%@ taglib prefix="h" uri="http://java.sun.com/jsf/html" %>
-<html xmlns:c="http://java.sun.com/jsp/jstl/core">
 <!DOCTYPE html>
-<html>
+<jsp:useBean id="test" class="com.ssase13.model.JsfLogin" /> 
+<%
+            friendProfile fp = new friendProfile();
+            String getName = (String)session.getAttribute("loggedinName");
+           
+            String resp = fp.getAdressByUser(getName);
+           
+            pageContext.setAttribute("resp", resp);
+%>
+  <%-- </c:set> --%>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>

@@ -20,9 +20,12 @@
                 </library>
                 <library dirs="200">
                     <file>${file.reference.mysql-connector-java-5.1.26-bin.jar}</file>
+<<<<<<< HEAD
                 </library>
                 <library dirs="200">
                     <file>${file.reference.mysql-connector-java-5.1.26-bin.jar-1}</file>
+=======
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>

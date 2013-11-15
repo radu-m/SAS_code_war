@@ -13,11 +13,19 @@
     "http://www.w3.org/TR/html4/loose.dtd">
  
 <html>
+<<<<<<< HEAD
+=======
+  <f:view>
+      
+   
+
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSF Successfull login</title>
     </head>
     <body>
+<<<<<<< HEAD
         <f:view>
  
         <h:form id="LoginForm">
@@ -31,4 +39,27 @@
         </f:view>
         
     </body>
+=======
+        
+ 
+        <h:form id="LoginForm">
+            
+            <h1>Welcome <h:outputText value="#{MyProfile.myUserName}"/>!!</h1>
+            <h2>Name: <h:outputText value="#{MyProfile.myName}"/></h2>
+            <h3>Address: <h:outputText  value="#{MyProfile.myAdress}"/></h3>
+       
+                <c:forEach var="listsOfHugs" items="${MyProfile.huggedBy}" varStatus="status">
+                    <br/>
+                <c:out value="${listsOfHugs.myName}" /><td>
+                 <c:out value="${listsOfHugs.myID}" /><td>   
+                 
+                 </c:forEach>
+                <h:outputText value="Search for user"/>
+             <%--   <h:inputText id="search for user" value="#{Register.name}"/> --%>
+            </h:form>
+                
+        
+    </body>
+   </f:view> 
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
 </html>

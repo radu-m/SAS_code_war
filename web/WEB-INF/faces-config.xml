@@ -5,16 +5,27 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <managed-bean>
         <managed-bean-name>friendProfile</managed-bean-name>
+<<<<<<< HEAD
         <managed-bean-class>com.ssase13.model.friendProfile</managed-bean-class>
     
         <managed-bean-scope>request</managed-bean-scope></managed-bean>
     <managed-bean>
         <managed-bean-name>JsfLogin</managed-bean-name>
         <managed-bean-class>com.ssase13.model.JsfLogin</managed-bean-class>
+=======
+        <managed-bean-class>com.jsflogin.friendProfile</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean> 
+    
+    <managed-bean>
+        <managed-bean-name>JsfLogin</managed-bean-name>
+        <managed-bean-class>com.jsflogin.JsfLogin</managed-bean-class>
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
     
         <managed-bean-scope>request</managed-bean-scope></managed-bean>
     <managed-bean>
         <managed-bean-name>Register</managed-bean-name>
+<<<<<<< HEAD
         <managed-bean-class>com.ssase13.model.Register</managed-bean-class>
     
         <managed-bean-scope>request</managed-bean-scope></managed-bean>
@@ -22,28 +33,59 @@
         <from-view-id>/register.jsp</from-view-id>
         <navigation-case>
             <from-action>#{register.registerUser}</from-action>
+=======
+        <managed-bean-class>com.jsflogin.Register</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>MyProfile</managed-bean-name>
+        <managed-bean-class>com.jsflogin.MyProfile</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <navigation-rule>
+        <from-view-id>/Register.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{Register.registerUser}</from-action>
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
             <from-outcome>success</from-outcome>
             <to-view-id>/login.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
+<<<<<<< HEAD
             <from-action>#{register.registerUser}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/fail.jsp</to-view-id>
+=======
+            <from-action>#{Register.registerUser}</from-action>
+            <from-outcome>fail</from-outcome>
+            <to-view-id>/Fail.jsp</to-view-id>
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <from-view-id>/login.jsp</from-view-id>
+<<<<<<< HEAD
         <navigation-case>
             <from-action>#{JsfLogin.CheckValidUser}</from-action>
             <from-outcome>success</from-outcome>
             <to-view-id>/myProfile.jsp</to-view-id>
         </navigation-case>
+=======
+            <navigation-case>
+                <from-action>#{JsfLogin.CheckValidUser}</from-action>
+                <from-outcome>success</from-outcome>
+                <to-view-id>/myProfile.jsp</to-view-id>
+                
+            </navigation-case>
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
         <navigation-case>
             <from-action>#{JsfLogin.CheckValidUser}</from-action>
             <from-outcome>fail</from-outcome>
             <to-view-id>/fail.jsp</to-view-id>
         </navigation-case>
         <navigation-case>
+<<<<<<< HEAD
             <from-action>register</from-action>
             <from-outcome>register</from-outcome>
             <to-view-id>/register.jsp</to-view-id>
@@ -53,4 +95,11 @@
         <from-view-id>/people</from-view-id>
         
     </navigation-rule>-->
+=======
+            <from-action>Register</from-action>
+            <from-outcome>Register</from-outcome>
+            <to-view-id>/Register.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
 </faces-config>

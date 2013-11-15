@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+<<<<<<< HEAD
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     </head>
     <body>
@@ -34,5 +35,10 @@
         </c:forEach>
         </tbody>
         </table>
+=======
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+>>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
     </body>
 </html>

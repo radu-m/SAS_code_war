@@ -17,8 +17,9 @@
         <title>JSF Login Application in Netbeans</title>
     </head>
     <body>
+      <% HttpSession  s1 = pageContext.getSession();%>
     <f:view>
-        <h:form id="LoginForm">
+       <h:form id="loginform">
             <h:panelGrid id="lpg" columns="2">
  
                 <h:outputText value="User ID"/>
@@ -28,12 +29,8 @@
                 <h:outputText value=""/>
                 <h:commandButton value="Login" action="#{JsfLogin.CheckValidUser}"/>
                 <h:outputText value=""/>
-                <h:commandButton value="Register" action="Register"/>
-                
             </h:panelGrid>
         </h:form>
     </f:view>
-        
-
 </body>
 </html>
