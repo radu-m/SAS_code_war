@@ -10,7 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-<<<<<<< HEAD
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     </head>
     <body>
@@ -26,7 +25,7 @@
         </form>   
         <table>
         <tbody>
-        <tr><th>ID</th><th>username</th><th>Name</th><th>Role</th></tr>
+        <tr><th>ID</th><th>username</th><th>Name</th><th>Address</th></tr>
         <c:forEach items="${requestScope.people}" var="person">
         <tr><td><c:out value="${person.personId}"></c:out></td>
         <td><c:out value="${person.username}"></c:out></td>                    
@@ -35,10 +34,5 @@
         </c:forEach>
         </tbody>
         </table>
-=======
-    </head>
-    <body>
-        <h1>Hello World!</h1>
->>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
     </body>
 </html>

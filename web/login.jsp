@@ -17,44 +17,20 @@
         <title>JSF Login Application in Netbeans</title>
     </head>
     <body>
-<<<<<<< HEAD
-    <f:view>
-        <h:form id="LoginForm">
-=======
       <% HttpSession  s1 = pageContext.getSession();%>
     <f:view>
        <h:form id="loginform">
->>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
             <h:panelGrid id="lpg" columns="2">
  
                 <h:outputText value="User ID"/>
                 <h:inputText id="loginid" value="#{JsfLogin.loginid}"/>
-<<<<<<< HEAD
-=======
-                
->>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
                 <h:outputText value="Password"/>
                 <h:inputSecret id="password" value="#{JsfLogin.password}"/>
                 <h:outputText value=""/>
                 <h:commandButton value="Login" action="#{JsfLogin.CheckValidUser}"/>
                 <h:outputText value=""/>
-<<<<<<< HEAD
-                <h:commandButton value="Register" action="Register"/>
-                
             </h:panelGrid>
         </h:form>
     </f:view>
-        
-
-=======
-                
-                
-            </h:panelGrid>
-        </h:form>
-        <form action="${pageContext.request.contextPath}/MyProfile.jsp" method="post">
-            <input id="clickMe" type="submit" value="Login"  />
-        </form>
-    </f:view>
->>>>>>> be01eacd6bfa3b906c51fd0f44fbbe76187a4c65
 </body>
 </html>

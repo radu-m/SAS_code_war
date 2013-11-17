@@ -4,12 +4,15 @@
  */
 
 package com.ssase13.model;
+import static com.ssase13.model.JsfLogin.loggedInID;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 /**
  *
  * @author peddy
@@ -20,16 +23,20 @@ public class friendProfile {
     String friendAddress;
     ArrayList listOfNames; 
     boolean HugSent;
+    public String testVAL;
     String ConnectionPath ;// "jdbc:mysql://localhost:3306/demodb";// 
     String ConnectionUser ;
     String ConnectionPW ;
     public friendProfile(){
-     /*   friendName= getNameByUser(myUserName);
-        friendAddress= getAdressByUser(friendAddress);
+        //HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);  
+        //myUserName = (String)session.getAttribute("myLoggedInUserName");
         ConnectionInfo info = new ConnectionInfo();
+        friendName= getNameByUser(myUserName);
+        friendAddress= getAdressByUser(friendAddress);
+        
         ConnectionPath= info.ConnectionPath;
         ConnectionUser = info.ConnectionUser;
-        ConnectionPW = info.ConnectionPW;*/
+        ConnectionPW = info.ConnectionPW;
     }
    
     public String getFriendName() {

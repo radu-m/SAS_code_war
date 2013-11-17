@@ -1,28 +1,52 @@
 package com.ssase13.model;
 
+import com.ssase13.model.ConnectionInfo;
+import com.ssase13.model.Register;
 import static com.ssase13.model.Register.log;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import javax.faces.bean.SessionScoped;
 import org.apache.log4j.BasicConfigurator;
 
+import javax.servlet.*;
+import java.io.*;
+import javax.servlet.http.*;
+import javax.faces.bean.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.faces.context.FacesContext;
+
+
+@ManagedBean
+
 @SessionScoped
-public class JsfLogin {
+public class JsfLogin extends HttpServlet{
+  
     String loginid;
     String password;
     String searchName;
+    
     String ConnectionPath ;// "jdbc:mysql://localhost:3306/demodb";// 
     String ConnectionUser ;
     String ConnectionPW ;
     String javaSQLDriverPath ;
-    String loggedInName;
+    
+    String loggedInName="FALURE";
     String loggedInUserName;
     String loggedInAdress;
-    int loggedInID;
+    static int loggedInID;
+
+    public static int getLoggedInID() {
+        return loggedInID;
+        
+    }
+
+    public static void setLoggedInID(int loggedInID) {
+        JsfLogin.loggedInID = loggedInID;
+    }
     static Logger log = LogManager.getLogger(JsfLogin.class.getName());
     Register myReg;
     public JsfLogin(){
@@ -76,6 +100,7 @@ public class JsfLogin {
 
     public String CheckValidUser(){
         return checkValidLogin(loginid, password);
+        
     }
      public String checkValidLogin(String myUserName, String myPW){
         
@@ -92,7 +117,7 @@ public class JsfLogin {
                  if(myUserName.equals(rs.getString("Username"))){
                     if(myPW.equals(rs.getString("Password"))){
                         setUserVariables(myUserName);
-                        return "friendProfile";     
+                        return "success";     
                     }
                     else{
                          return "wrongPassword";                
@@ -117,13 +142,21 @@ public class JsfLogin {
     }
     public void setUserVariables(String currentUser){
         loggedInUserName = currentUser;
-        loggedInAdress = myReg.getAdressByUser(currentUser);
-        loggedInName = myReg.getNameByUser(currentUser);
-        loggedInID = myReg.getIDByUserName(currentUser);
+        
+        HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);  
+        log.info("shoudl store \t"+loggedInUserName);
+       
+       session.setAttribute("myLoggedInUserName", loggedInUserName);
         
     } 
     public void searchByName(String searchForThis){
          myReg.findIDbyName(searchForThis);
     }
- 
+     @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException 
+    {       
+     //  CheckValidUser();
+       //req.getSession().setAttribute("myID", loggedInID);
+       log.info("i got into doPost somehow?");
+    }
 }

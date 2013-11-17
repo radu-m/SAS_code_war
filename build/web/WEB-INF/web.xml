@@ -11,7 +11,7 @@
     </servlet>
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>com.ssase13.model.login</servlet-class>
+        <servlet-class>com.ssase13.model.JsfLogin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SearchPeople</servlet-name>

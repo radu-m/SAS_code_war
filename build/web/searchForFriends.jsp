@@ -25,7 +25,7 @@
         </form>   
         <table>
         <tbody>
-        <tr><th>ID</th><th>username</th><th>Name</th><th>Role</th></tr>
+        <tr><th>ID</th><th>username</th><th>Name</th><th>Address</th></tr>
         <c:forEach items="${requestScope.people}" var="person">
         <tr><td><c:out value="${person.personId}"></c:out></td>
         <td><c:out value="${person.username}"></c:out></td>                    

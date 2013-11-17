@@ -18,8 +18,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSF Successfull login</title>
     </head>
-    <body>       
- 
+    <body> 
         <h:form id="LoginForm">
             
             <h1>Welcome <h:outputText value="#{MyProfile.myUserName}"/>!!</h1>

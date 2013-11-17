@@ -1,8 +1,9 @@
-package com.jsflogin;
+package com.ssase13.model;
 
 
-import static com.jsflogin.JsfLogin.loggedInID;
-import static com.jsflogin.Register.log;
+import com.ssase13.model.ConnectionInfo;
+//import static com.ssase13.model.JsfLogin.loggedInID;
+import static com.ssase13.model.Register.log;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -13,7 +14,6 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 import java.util.HashMap; 
-import com.jsflogin.NameWithID;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -306,7 +306,7 @@ public  class MyProfile {
                  tempFriend.setMyID(FriendsIDInt);
                  friendList.add(tempFriend);
                 
-                friendIDS.add(rs.getInt("personID2"));
+//                friendIDS.add(rs.getInt("personID2"));
                  System.out.println("friends with:\t"+rs.getInt("personID2"));
            
             
