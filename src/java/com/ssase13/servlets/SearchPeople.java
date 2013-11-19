@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
 import com.ssase13.model.UserFactory;
-import com.ssase13.model.friendProfile;
+import com.ssase13.model.FriendProfile;
 
 /**
  *

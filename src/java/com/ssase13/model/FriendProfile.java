@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author peddy
  */
-public class friendProfile {
+public class FriendProfile {
     String myUserName="Jonatan";
     String friendName="testName";
     String friendAddress;
@@ -27,7 +27,7 @@ public class friendProfile {
     String ConnectionPath ;// "jdbc:mysql://localhost:3306/demodb";// 
     String ConnectionUser ;
     String ConnectionPW ;
-    public friendProfile(){
+    public FriendProfile(){
         //HttpSession session = (HttpSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);  
         //myUserName = (String)session.getAttribute("myLoggedInUserName");
         ConnectionInfo info = new ConnectionInfo();

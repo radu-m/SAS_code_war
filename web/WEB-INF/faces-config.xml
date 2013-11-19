@@ -4,8 +4,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <managed-bean>
-        <managed-bean-name>friendProfile</managed-bean-name>
-        <managed-bean-class>com.ssase13.model.friendProfile</managed-bean-class>
+        <managed-bean-name>FriendProfile</managed-bean-name>
+        <managed-bean-class>com.ssase13.model.FriendProfile</managed-bean-class>
     
         <managed-bean-scope>request</managed-bean-scope></managed-bean>
     <managed-bean>
@@ -49,8 +49,25 @@
             <to-view-id>/register.jsp</to-view-id>
         </navigation-case>
     </navigation-rule>
-<!--    <navigation-rule>
-        <from-view-id>/people</from-view-id>
-        
-    </navigation-rule>-->
+    <managed-bean>
+        <managed-bean-name>MyProfile</managed-bean-name>
+        <managed-bean-class>com.ssase13.model.MyProfile</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <navigation-rule>
+        <from-view-id>/myProfile.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{MyProfile.goToInterestProfile}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/interestPage.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/interestPage.jsp</from-view-id>
+        <navigation-case>
+            <from-action>#{interestPage.goToProfile}</from-action>
+            <from-outcome>myProfile</from-outcome>
+            <to-view-id>/myProfile.jsp</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
